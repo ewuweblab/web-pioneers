@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content="Astro v7.3.5" />
+    <title>Web Pioneers | The Client</title>
+
+    <style>
+      /* ---------- Base / reset ---------- */
+      /* Include padding and borders in element widths. */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      /* Remove default browser margins on the elements we style ourselves. */
+      body, h1, h2, p {
+        margin: 0;
+      }
+
+      body {
+        background-color: #f9fafb; /* light gray page background */
+        color: #111827;            /* near-black text */
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.5;
+      }
+
+      /* ---------- Layout ---------- */
+      /* Centered container, max 64rem wide, with 1.5rem padding. */
+      .container {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      .page-title {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      /* Card grid: 1 column by default, 2 at >=640px, 3 at >=1024px. */
+      .card-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 640px) {
+        .card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .card-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* ---------- Card ---------- */
+      /* White card with rounded corners and a soft shadow.
+         overflow: hidden clips the image to the rounded corners. */
+      .card {
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Photo: full width, fixed 4:3 ratio, cropped to fill,
+         anchored to the top so faces stay in frame. */
+      .card-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      /* Padded text area. */
+      .card-body {
+        padding: 1rem;
+      }
+
+      .card-name {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+      }
+
+      .card-bio {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      /* inline-block lets the top margin apply to the link. */
+      .card-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        color: #2563eb;
+        text-decoration: underline;
+      }
+
+      /* ---------- Footer ---------- */
+      .site-footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1 class="page-title">Web Pioneers</h1>
+
+        <!-- Responsive card grid; each <article> is one person. -->
+        <div class="card-grid">
+
+          <!-- 1. Tim Berners-Lee -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/tim-berners-lee.jpg"
+              alt="Tim Berners-Lee"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Tim Berners-Lee</h2>
+              <p class="card-bio">
+                Invented the World Wide Web at CERN in 1989, creating HTML, URLs and HTTP. Founded the W3C in 1994 and co-founded the Open Data Institute.
+              </p>
+              <a class="card-link" href="https://www.w3.org/People/Berners-Lee/">w3.org/People/Berners-Lee</a>
+            </div>
+          </article>
+
+          <!-- 2. Jeffrey Zeldman -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/jeffrey-zeldman.jpg"
+              alt="Jeffrey Zeldman"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Jeffrey Zeldman</h2>
+              <p class="card-bio">
+                <!-- <em> marks the book title (italic) -->
+                Co-founded A List Apart and led the Web Standards Project. Wrote <em>Designing with Web Standards</em> and co-founded the An Event Apart conference.
+              </p>
+              <a class="card-link" href="https://zeldman.com/">zeldman.com</a>
+            </div>
+          </article>
+
+          <!-- 3. Nicole Sullivan -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/nicole-sullivan.jpg"
+              alt="Nicole Sullivan"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Nicole Sullivan</h2>
+              <p class="card-bio">
+                Created Object-Oriented CSS (OOCSS) for scalable, reusable stylesheets. Known for front-end performance work at Yahoo! and Facebook.
+              </p>
+              <a class="card-link" href="https://www.stubbornella.org/">stubbornella.org</a>
+            </div>
+          </article>
+
+          <!-- 4. Molly Holzschlag (1963–2023) -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/molly-holzschlag.jpg"
+              alt="Molly Holzschlag"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Molly Holzschlag</h2>
+              <p class="card-bio">
+                Author of 35 books on web design, including <em>The Zen of CSS Design</em>. Led the Web Standards Project (2004–2006) and championed accessibility and education. (1963–2023)
+              </p>
+              <a class="card-link" href="https://www.molly.com/">molly.com</a>
+            </div>
+          </article>
+
+          <!-- 5. Eric Meyer -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/eric-meyer.jpg"
+              alt="Eric Meyer"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Eric Meyer</h2>
+              <p class="card-bio">
+                Early CSS champion and author of <em>CSS: The Definitive Guide</em>. Co-founded An Event Apart and created the S5 slideshow format.
+              </p>
+              <a class="card-link" href="https://meyerweb.com/">meyerweb.com</a>
+            </div>
+          </article>
+
+          <!-- 6. Lynda Weinman -->
+          <article class="card">
+            <img
+              class="card-image"
+              src="images/lynda-weinman.jpg"
+              alt="Lynda Weinman"
+            />
+            <div class="card-body">
+              <h2 class="card-name">Lynda Weinman</h2>
+              <p class="card-bio">
+                Wrote <em>Designing Web Graphics</em> (1996), one of the first web design books. Co-founded lynda.com, the online learning site LinkedIn bought in 2015.
+              </p>
+              <a class="card-link" href="https://en.wikipedia.org/wiki/Lynda_Weinman">Wikipedia: Lynda Weinman</a>
+            </div>
+          </article>
+
+        </div>
+        <!-- /card-grid -->
+      </div>
+      <!-- /container -->
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 The Client</p>
+    </footer>
+  </body>
+</html>
