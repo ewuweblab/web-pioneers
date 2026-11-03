@@ -1,57 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<!-- ===== HEAD: page settings (from BaseLayout.astro) ===== -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content="Astro v7.3.5" />
+    <title>Web Pioneers | The Client</title>
 
-	<!-- Character encoding and mobile-friendly scaling -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      Tailwind via the Play CDN: compiles utility classes in the browser.
+      Convenient for prototyping; for production, use a build step instead.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-	<!-- Favicon: SVG for modern browsers, ICO as a fallback -->
-	<link rel="icon" type="image/svg+xml" href="favicon.svg">
-	<link rel="icon" href="favicon.ico">
+  <!-- bg-gray-50: light gray page background | text-gray-900: near-black default text -->
+  <body class="bg-gray-50 text-gray-900">
+    <main>
+      <!--
+        Page container
+        max-w-5xl: cap width at 64rem | mx-auto: center horizontally | p-6: 1.5rem padding
+      -->
+      <div class="max-w-5xl mx-auto p-6">
+        <!-- text-4xl: large heading | font-bold | mb-8: space below | text-center -->
+        <h1 class="text-4xl font-bold mb-8 text-center">Web Pioneers</h1>
 
-	<!-- Added automatically by Astro -->
-	<meta name="generator" content="Astro v7.3.5">
+        <!--
+          Responsive card grid
+          grid gap-6: grid layout with 1.5rem gaps (1 column by default)
+          sm:grid-cols-2: 2 columns at >=640px
+          lg:grid-cols-3: 3 columns at >=1024px
+        -->
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-	<!-- Browser tab text: page title | site title -->
-	<title>Web Pioneers | The Client</title>
+          <!--
+            CARD TEMPLATE (every card below follows this pattern)
+            <article>: white card, rounded corners, drop shadow;
+              overflow-hidden clips the image to the rounded corners.
+            <img>: full width, fixed 4:3 ratio (aspect-[4/3]),
+              object-cover crops to fill, object-top keeps faces
+              (top of the photo) in frame.
+            <div class="p-4">: padded text area.
+            <h2>: person's name (text-xl font-semibold).
+            <p>: short bio (mt-2 spacing, text-sm small text).
+            <a>: link (blue, underlined; inline-block lets mt-3 margin apply).
+          -->
 
-	<!-- Tailwind CSS from a CDN (needs an internet connection) -->
-	<script src="https://cdn.tailwindcss.com"></script>
-</head>
+          <!-- 1. Tim Berners-Lee -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/tim-berners-lee.jpg"
+              alt="Tim Berners-Lee"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Tim Berners-Lee</h2>
+              <p class="mt-2 text-sm">
+                Invented the World Wide Web at CERN in 1989, creating HTML, URLs and HTTP. Founded the W3C in 1994 and co-founded the Open Data Institute.
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://www.w3.org/People/Berners-Lee/">w3.org/People/Berners-Lee</a>
+            </div>
+          </article>
 
-<!-- Light gray page background, near-black text -->
-<body class="bg-gray-50 text-gray-900">
+          <!-- 2. Jeffrey Zeldman -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/jeffrey-zeldman.jpg"
+              alt="Jeffrey Zeldman"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Jeffrey Zeldman</h2>
+              <p class="mt-2 text-sm">
+                <!-- <em> marks the book title (italic) -->
+                Co-founded A List Apart and led the Web Standards Project. Wrote <em>Designing with Web Standards</em> and co-founded the An Event Apart conference.
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://zeldman.com/">zeldman.com</a>
+            </div>
+          </article>
 
-	<!-- ===== MAIN: each page's content goes here (BaseLayout <slot />) ===== -->
-	<main>
+          <!-- 3. Nicole Sullivan -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/nicole-sullivan.jpg"
+              alt="Nicole Sullivan"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Nicole Sullivan</h2>
+              <p class="mt-2 text-sm">
+                Created Object-Oriented CSS (OOCSS) for scalable, reusable stylesheets. Known for front-end performance work at Yahoo! and Facebook.
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://www.stubbornella.org/">stubbornella.org</a>
+            </div>
+          </article>
 
-		<!-- Page container: max width, centered, with padding -->
-		<div class="max-w-5xl mx-auto p-6">
+          <!-- 4. Molly Holzschlag (1963–2023) -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/molly-holzschlag.jpg"
+              alt="Molly Holzschlag"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Molly Holzschlag</h2>
+              <p class="mt-2 text-sm">
+                Author of 35 books on web design, including <em>The Zen of CSS Design</em>. Led the Web Standards Project (2004–2006) and championed accessibility and education. (1963–2023)
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://www.molly.com/">molly.com</a>
+            </div>
+          </article>
 
-			<!-- Page heading (from index.astro) -->
-			<h1 class="text-4xl font-bold mb-8">Web Pioneers</h1>
+          <!-- 5. Eric Meyer -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/eric-meyer.jpg"
+              alt="Eric Meyer"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Eric Meyer</h2>
+              <p class="mt-2 text-sm">
+                Early CSS champion and author of <em>CSS: The Definitive Guide</em>. Co-founded An Event Apart and created the S5 slideshow format.
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://meyerweb.com/">meyerweb.com</a>
+            </div>
+          </article>
 
-			<!-- Card grid: 1 column on phones, 2 on small screens, 3 on large screens -->
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- 6. Lynda Weinman -->
+          <article class="bg-white rounded-lg shadow overflow-hidden">
+            <img
+              class="w-full aspect-[4/3] object-cover object-top"
+              src="images/lynda-weinman.jpg"
+              alt="Lynda Weinman"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Lynda Weinman</h2>
+              <p class="mt-2 text-sm">
+                Wrote <em>Designing Web Graphics</em> (1996), one of the first web design books. Co-founded lynda.com, the online learning site LinkedIn bought in 2015.
+              </p>
+              <a class="mt-3 inline-block text-blue-600 underline" href="https://en.wikipedia.org/wiki/Lynda_Weinman">Wikipedia: Lynda Weinman</a>
+            </div>
+          </article>
 
-				<!-- ===== Card: Tim Berners-Lee ===== -->
-				<!-- Each card comes from PersonCard.astro.
-				     The name, image, link and link text are props;
-				     the bio paragraph is the slot content. -->
-				<article class="bg-white rounded-lg shadow overflow-hidden">
-					<!-- Photo: full width, 4:3 shape, cropped to fill, anchored to the top -->
-					<img class="w-full aspect-[4/3] object-cover object-top" src="images/tim-berners-lee.jpg" alt="Tim Berners-Lee">
-					<!-- Text area with padding -->
-					<div class="p-4">
-						<h2 class="text-xl font-semibold">Tim Berners-Lee</h2>
-						<p class="mt-2 text-sm">
-							Invented the World Wide Web at CERN in 1989, creating HTML, URLs and HTTP. Founded the W3C in 1994 and co-founded the Open Data Institute.
-						</p>
-						<a class="mt-3 inline-block text-blue-600 underline" href="https://www.w3.org/People/Berners-Lee/">w3.org/People/Berners-Lee</a>
-					</div>
-				</article>
+        </div>
+        <!-- /grid -->
+      </div>
+      <!-- /container -->
+    </main>
 
-				<!-- ===== Card: Jeffrey Zeldman ===== -->
-				…
+    <!-- text-center: centers the copyright line -->
+    <footer class="text-center">
+      <p>&copy; 2026 The Client</p>
+    </footer>
+  </body>
+</html>
